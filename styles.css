@@ -162,12 +162,12 @@ a { color: inherit; }
 
 /* ---------- финал ---------- */
 /* низ финала плавно уходит в цвет эпилога, чтобы между блоками не было ступеньки */
-.finale { background: linear-gradient(180deg, rgba(0, 40, 130, 0) 40%, var(--tb) 100%), linear-gradient(160deg, var(--md) 0%, var(--mb) 50%, var(--tb) 100%); color: #fff; padding-top: 56px; overflow: hidden; }
+.finale { background: linear-gradient(180deg, rgba(0, 40, 130, 0) 40%, var(--tb) 100%), linear-gradient(160deg, var(--md) 0%, var(--mb) 50%, var(--tb) 100%); color: #fff; padding: 56px 0; overflow: hidden; }
 .finale__title { font: 500 28px/1.15 var(--font); }
 .finale__text p { margin-top: 20px; color: var(--lb); font-size: 17px; line-height: 1.55; }
 .finale__text .btn { margin-top: 28px; }
-.finale__inner { display: flex; flex-direction: column; }
-.finale__door { order: -1; position: relative; width: min(294px, 80%); margin: 0 auto 32px; }
+/* на телефоне двери нет: она ломала композицию (появляется с планшета) */
+.finale__door { display: none; position: relative; }
 .finale__hall { width: 100%; height: auto; }
 /* жемчужина стоит в проеме двери у порога и смотрит на текст (картинка отражена) */
 .finale__pearl { position: absolute; width: 24%; left: 20%; bottom: 3%; transform: scaleX(-1); }
@@ -246,11 +246,9 @@ a { color: inherit; }
   .howto img { width: 104px; height: 104px; grid-row: 1 / span 2; }
   .howto p:not(.howto__label) { grid-column: 2; font-size: 17px; }
   .howto__label { align-self: end; margin-bottom: 8px; }
-  .finale { padding-top: 72px; }
+  .finale { padding: 72px 0 0; }
   .finale__title { font-size: 38px; }
-  .finale__door { width: 360px; }
-  .finale__inner { display: block; }
-  .finale__door { margin: 40px auto 0; }
+  .finale__door { display: block; width: 360px; margin: 40px auto 0; }
   .epilogue { padding: 72px 40px; }
   .flake--a { width: 140px; right: -10px; top: 40px; }
   .flake--b { display: block; width: 130px; left: 2%; top: 32%; }
@@ -343,7 +341,7 @@ a { color: inherit; }
   .finale__title { font-size: 46px; line-height: 52px; max-width: 700px; }
   .finale__text p { font-size: 19px; line-height: 30px; max-width: 600px; margin-top: 24px; }
   .finale__text .btn { margin-top: 32px; }
-  .finale__door { order: 0; width: 420px; margin: 0 0 0 auto; }
+  .finale__door { width: 420px; margin: 0 0 0 auto; }
 
   .epilogue { padding: 80px 120px; }
   .flake--a { width: 151px; left: auto; right: 39px; top: 74px; rotate: none; }
