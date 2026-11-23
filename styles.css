@@ -143,8 +143,9 @@ a { color: inherit; }
 .play { display: flex; flex-direction: column; padding: 32px 0; border-top: 1px solid var(--stroke); }
 .season__title + .play { border-top: 0; padding-top: 16px; }
 .play__desc, .play__extra, .howto > div { display: contents; }
-.stage { order: 1; position: relative; overflow: hidden; border-radius: 20px; background: var(--mb); aspect-ratio: 16 / 10.5; }
-.stage__heroes { position: absolute; left: 46%; bottom: 0; transform: translateX(-50%); width: 88%; height: calc(100% - 16px); max-width: none; object-fit: contain; object-position: 50% 100%; }
+/* все сцены пьес 4:3, герои по центру кадра */
+.stage { order: 1; position: relative; overflow: hidden; border-radius: 20px; background: var(--mb); aspect-ratio: 4 / 3; }
+.stage__heroes { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 74%; height: 80%; max-width: none; object-fit: contain; object-position: 50% 50%; }
 .stage__curtain { position: absolute; right: 0; top: -10px; height: calc(100% + 20px); width: auto; max-width: none; transform: translateX(calc(100% - 64px)); }
 .play__desc > * { order: 2; }
 .play__extra > p { order: 3; margin-top: 20px; }
@@ -239,7 +240,6 @@ a { color: inherit; }
   .parade__row img { height: 198px; } .parade__row img.p-mid { height: 166px; } .parade__row img.p-small { height: 130px; }
   .parade__floor { height: 76px; }
   .season__title { font-size: 30px; }
-  .stage { aspect-ratio: 16 / 9; }
   .stage__curtain { transform: translateX(calc(100% - 110px)); }
   .h3 { font-size: 42px; }
   .howto { grid-template-columns: 104px 1fr; gap: 0 24px; padding: 28px 32px 28px 28px; }
@@ -316,16 +316,15 @@ a { color: inherit; }
 
   .season__title { font-size: 32px; margin: 48px 0 0; }
   .play { display: grid; grid-template-columns: 666fr 478fr; column-gap: 56px; row-gap: 24px; padding: 48px 0;
-    grid-template-areas: "stage desc" "card desc" "extra extra"; grid-template-rows: minmax(340px, 1fr) auto auto; }
-  .play:not(:has(.play__extra)) { grid-template-areas: "stage desc" "card desc"; grid-template-rows: minmax(340px, 1fr) auto; }
+    grid-template-areas: "stage desc" "card desc" "extra extra"; grid-template-rows: auto auto auto; align-items: start; }
+  .play:not(:has(.play__extra)) { grid-template-areas: "stage desc" "card desc"; grid-template-rows: auto auto; }
   .play--flip { grid-template-columns: 478fr 666fr; grid-template-areas: "desc stage" "desc card" "extra extra"; }
   .play--flip:not(:has(.play__extra)) { grid-template-areas: "desc stage" "desc card"; }
   .season__title + .play { padding-top: 48px; }
   .play__desc { display: block; grid-area: desc; }
   .play__extra { display: block; grid-area: extra; max-width: 880px; }
   .play__extra > p { margin-top: 8px; }
-  .stage { grid-area: stage; aspect-ratio: auto; border-radius: 24px; }
-  .stage__heroes { height: min(480px, calc(100% - 36px)); width: 90%; }
+  .stage { grid-area: stage; border-radius: 24px; }
   .stage__curtain { transform: translateX(calc(100% - 120px)); }
   .howto { grid-area: card; margin-top: 0; }
   .meta { margin-top: 0; font-size: 15px; }
