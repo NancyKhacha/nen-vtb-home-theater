@@ -161,14 +161,16 @@ a { color: inherit; }
 .howto p:not(.howto__label) { grid-column: 1 / -1; font-size: 16px; line-height: 1.5; }
 
 /* ---------- финал ---------- */
-.finale { background: linear-gradient(160deg, var(--md) 0%, var(--mb) 50%, var(--tb) 100%); color: #fff; padding-top: 56px; overflow: hidden; }
+/* низ финала плавно уходит в цвет эпилога, чтобы между блоками не было ступеньки */
+.finale { background: linear-gradient(180deg, rgba(0, 40, 130, 0) 40%, var(--tb) 100%), linear-gradient(160deg, var(--md) 0%, var(--mb) 50%, var(--tb) 100%); color: #fff; padding-top: 56px; overflow: hidden; }
 .finale__title { font: 500 28px/1.15 var(--font); }
 .finale__text p { margin-top: 20px; color: var(--lb); font-size: 17px; line-height: 1.55; }
 .finale__text .btn { margin-top: 28px; }
 .finale__inner { display: flex; flex-direction: column; }
 .finale__door { order: -1; position: relative; width: min(294px, 80%); margin: 0 auto 32px; }
 .finale__hall { width: 100%; height: auto; }
-.finale__pearl { position: absolute; width: 32%; left: -30%; bottom: 6%; }
+/* жемчужина стоит в проеме двери у порога и смотрит на текст (картинка отражена) */
+.finale__pearl { position: absolute; width: 24%; left: 20%; bottom: 3%; transform: scaleX(-1); }
 
 /* ---------- эпилог ---------- */
 .epilogue { position: relative; overflow: hidden; background: var(--tb); color: #fff; padding: 56px 20px; }
@@ -341,8 +343,7 @@ a { color: inherit; }
   .finale__title { font-size: 46px; line-height: 52px; max-width: 700px; }
   .finale__text p { font-size: 19px; line-height: 30px; max-width: 600px; margin-top: 24px; }
   .finale__text .btn { margin-top: 32px; }
-  .finale__door { width: 420px; margin: 0 0 0 auto; }
-  .finale__pearl { width: 134px; left: -178px; bottom: 18px; }
+  .finale__door { order: 0; width: 420px; margin: 0 0 0 auto; }
 
   .epilogue { padding: 80px 120px; }
   .flake--a { width: 151px; left: auto; right: 39px; top: 74px; rotate: none; }
