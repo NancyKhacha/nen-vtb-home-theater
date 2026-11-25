@@ -142,13 +142,12 @@ a { color: inherit; }
 .season__title { font: 500 24px/1.2 var(--font); color: var(--mb); margin: 40px 0 8px; }
 .play { display: flex; flex-direction: column; padding: 32px 0; border-top: 1px solid var(--stroke); }
 .season__title + .play { border-top: 0; padding-top: 16px; }
-.play__desc, .play__extra, .howto > div { display: contents; }
+.play__desc, .howto > div { display: contents; }
 /* все сцены пьес 4:3, герои по центру кадра */
 .stage { order: 1; position: relative; overflow: hidden; border-radius: 20px; background: var(--mb); aspect-ratio: 4 / 3; }
 .stage__heroes { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 74%; height: 80%; max-width: none; object-fit: contain; object-position: 50% 50%; }
 .stage__curtain { position: absolute; right: 0; top: -10px; height: calc(100% + 20px); width: auto; max-width: none; transform: translateX(calc(100% - 64px)); }
 .play__desc > * { order: 2; }
-.play__extra > p { order: 3; margin-top: 20px; }
 .howto { order: 4; }
 .play .btn { order: 5; align-self: flex-start; margin-top: 24px; }
 .meta { display: flex; align-items: center; gap: 12px; margin-top: 20px; font-size: 14px; color: var(--gray); line-height: 1.3; }
@@ -316,14 +315,11 @@ a { color: inherit; }
 
   .season__title { font-size: 32px; margin: 48px 0 0; }
   .play { display: grid; grid-template-columns: 666fr 478fr; column-gap: 56px; row-gap: 24px; padding: 48px 0;
-    grid-template-areas: "stage desc" "card desc" "extra extra"; grid-template-rows: auto auto auto; align-items: start; }
-  .play:not(:has(.play__extra)) { grid-template-areas: "stage desc" "card desc"; grid-template-rows: auto auto; }
-  .play--flip { grid-template-columns: 478fr 666fr; grid-template-areas: "desc stage" "desc card" "extra extra"; }
-  .play--flip:not(:has(.play__extra)) { grid-template-areas: "desc stage" "desc card"; }
+    /* текст описания одной колонкой; карточка сразу под сценой, лишняя высота уходит во вторую строку */
+    grid-template-areas: "stage desc" "card desc"; grid-template-rows: auto 1fr; align-items: start; }
+  .play--flip { grid-template-columns: 478fr 666fr; grid-template-areas: "desc stage" "desc card"; }
   .season__title + .play { padding-top: 48px; }
   .play__desc { display: block; grid-area: desc; }
-  .play__extra { display: block; grid-area: extra; max-width: 880px; }
-  .play__extra > p { margin-top: 8px; }
   .stage { grid-area: stage; border-radius: 24px; }
   .stage__curtain { transform: translateX(calc(100% - 120px)); }
   .howto { grid-area: card; margin-top: 0; }
@@ -386,7 +382,7 @@ a { color: inherit; }
 .glow--lamp { left: 12.2%; top: 40%; width: 26%; z-index: 1; animation-duration: 4.5s; }
 @keyframes flicker { 0%, 100% { opacity: .55; scale: 1; } 20% { opacity: .9; scale: 1.06; } 35% { opacity: .5; } 55% { opacity: .85; scale: .97; } 70% { opacity: .6; scale: 1.04; } }
 /* часы: секундная стрелка тикает, минутная подползает к полуночи */
-.clock { position: absolute; left: 49.785%; top: 13.345%; width: 10.612%; aspect-ratio: 1; transform: translate(-50%, -50%); }
+.clock { position: absolute; left: 49.745%; top: 13.125%; width: 10.64%; aspect-ratio: 1; transform: translate(-50%, -50%); }
 .clock i { position: absolute; left: 50%; bottom: 50%; transform-origin: 50% 100%; border-radius: 99px; background: #144D94; }
 .clock__tick { width: 2%; height: 6%; bottom: auto !important; top: 9%; margin-left: -1%; border-radius: 1px !important; }
 .clock__h { width: 5.4%; height: 24%; margin-left: -2.7%; rotate: -1.5deg; }
